@@ -32,6 +32,9 @@ class Kernel extends ConsoleKernel
                upload($project, $filename);
             }
 
-        })->everyFiveMinutes();
+        })->when(function() {
+          return true;
+        });
+        //->everyFiveMinutes();
     }
 }

@@ -25,7 +25,7 @@ class FtpController extends Controller
 
       $this->validate($request,[
         'server_url' => 'required',
-        'server_username' => 'required|min:5',
+        'server_username' => 'required|min:2',
         'server_password' => 'required|min:5'
       ]);
 

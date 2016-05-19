@@ -6,9 +6,7 @@ function createprojectfile(Project $project)
     $date = new DateTime;
     $filename = $project['project_name'] . '-' . $date->format('mdY') . '.txt';
     $content = $project['project_name'];
-
     Storage::disk('local')->put($filename, $content);
-
     return $filename;
 }
 
@@ -21,13 +19,12 @@ function upload(Project $project, $filename)
       );
 
     // Send the file
-    if(ftp_put($conn_id, $filename, 'storage/app' . $filename, FTP_ASCII))
+    if(ftp_put($conn_id, $filename, 'storage/app/' . $filename, FTP_ASCII))
     {
-      echo 'success';
+      Log::info('Sent ' . $filename . ' to ' . $project['storage_server_url']);
     }
     else{
-      echo 'failure';
+      Log::error('Did not send ' . $filename . ' to ' . $project['storage_server_url']);
     }
-
     ftp_close($conn_id);
 }
