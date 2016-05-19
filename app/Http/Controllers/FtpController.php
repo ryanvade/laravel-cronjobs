@@ -10,6 +10,6 @@ class FtpController extends Controller
 {
     public function setup()
     {
-      
+      return view('ftp.setup');
     }
 }
