@@ -38,7 +38,29 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">FTP Setup Page</div>
+                <form method="POST" action="#">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <div class="form-group">
+                    <textarea name="server_url" class="form-control" placeholder="Server IP">
+                      {{ old('server_url') }}
+                    </textarea>
+                  </div>
+                  <div class="form-group">
+                    <textarea name="server_username" class="form-control" placeholder="Server Username">
+
+                    </textarea>
+                  </div>
+                  <div>
+                    <textarea name="server_password" class="form-control" placeholder="Server Password">
+
+                    </textarea>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                  </div>
+                </form>
             </div>
         </div>
     </body>
