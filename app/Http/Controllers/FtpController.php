@@ -14,12 +14,20 @@ class FtpController extends Controller
       return view('ftp.setup');
     }
 
+
+
     public function update(Request $request)
     {
       // Update Database with values HERE
       $server_url = $request->get('server_url');
       $server_username = $request->get('server_username');
       $server_password = $request->get('server_password');
+
+      $this->validate($request,[
+        'server_url' => 'require',
+        'server_username' => 'require|min:5',
+        'server_password' => 'require|min:5'
+      ]);
 
       // Find the Project given the User ID? Project Name?
       Project::find(1)->update([
