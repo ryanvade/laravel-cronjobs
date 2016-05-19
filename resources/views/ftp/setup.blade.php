@@ -62,12 +62,13 @@
                   </div>
                 </form>
 
-                @foreach $errors as $error
+                @if(count($errors))
+                @foreach ($errors->all() as $error)
                     <ul>
                       <li>{{$error}}</li>
                     </ul>
                 @endforeach
-
+                @endif
             </div>
         </div>
     </body>
