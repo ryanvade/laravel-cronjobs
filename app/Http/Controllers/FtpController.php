@@ -24,9 +24,9 @@ class FtpController extends Controller
       $server_password = $request->get('server_password');
 
       $this->validate($request,[
-        'server_url' => 'require',
-        'server_username' => 'require|min:5',
-        'server_password' => 'require|min:5'
+        'server_url' => 'required',
+        'server_username' => 'required|min:5',
+        'server_password' => 'required|min:5'
       ]);
 
       // Find the Project given the User ID? Project Name?
