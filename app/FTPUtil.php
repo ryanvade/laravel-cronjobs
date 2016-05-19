@@ -1,5 +1,5 @@
 <?
-
+use App\Project;
 use Storage;
 // May need to find where Storage is located in the project
 public function createprojectfile(Project $project)
