@@ -41,19 +41,13 @@
                 <form method="POST" action="/ftp/update">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="form-group">
-                    <textarea name="server_url" class="form-control" placeholder="Server IP" required>
-                      {{ old('server_url') }}
-                    </textarea>
+                    <textarea name="server_url" class="form-control" placeholder="Server IP" required></textarea>
                   </div>
                   <div class="form-group">
-                    <textarea name="server_username" class="form-control" placeholder="Server Username" required>
-
-                    </textarea>
+                    <textarea name="server_username" class="form-control" placeholder="Server Username" required></textarea>
                   </div>
                   <div>
-                    <textarea name="server_password" class="form-control" placeholder="Server Password" required>
-
-                    </textarea>
+                    <textarea name="server_password" class="form-control" placeholder="Server Password" required></textarea>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">
