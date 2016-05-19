@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-  protected $fillalble = [
-    'server_url', 'server_username', 'server_password', 'server_is_anonymous'
+  protected $fillable = [
+    'storage_server_url', 'storage_server_username', 'storage_server_password', 'server_is_anonymous'
   ];
 }

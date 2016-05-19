@@ -22,9 +22,12 @@ class FtpController extends Controller
       $server_password = $request->get('server_password');
 
       // Find the Project given the User ID? Project Name?
-      $project = Project::find(1);
-      //$project->update($request->all());
-      $project->save();
+      Project::find(1)->update([
+        'storage_server_url' => $server_url,
+        'storage_server_username' => $server_username,
+        'storage_server_password' =>  $server_password
+      ]);
+      //$project->save();
 
       return view('ftp.show', [
         'server_url' => $server_url,
