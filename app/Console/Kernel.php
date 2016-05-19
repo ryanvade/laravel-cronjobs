@@ -26,6 +26,11 @@ class Kernel extends ConsoleKernel
     {
         $schedule->call(function() {
 
+            foreach (Project::all() as $project) {
+               $filename = createprojectfile($project);
+               upload($project, $filename);
+            }
+
         })->everyFiveMinutes();
     }
 }
