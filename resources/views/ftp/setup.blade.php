@@ -61,6 +61,13 @@
                     </button>
                   </div>
                 </form>
+
+                @foreach $errors as $error
+                    <ul>
+                      <li>{{$error}}</li>
+                    </ul>
+                @endforeach
+
             </div>
         </div>
     </body>
