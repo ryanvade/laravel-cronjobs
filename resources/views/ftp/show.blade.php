@@ -50,6 +50,9 @@
             <div>
               {{ $server_password }}
             </div>
+            <div>
+              {{ $project_selection }}
+            </div>
             </div>
         </div>
     </body>
