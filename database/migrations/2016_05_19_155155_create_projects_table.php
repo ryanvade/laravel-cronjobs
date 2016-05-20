@@ -16,6 +16,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id')->unique()->index();
             $table->string('project_name');
             $table->string('storage_server_url');
+            $table->integer('storage_server_port');
             $table->string('storage_server_password');
             $table->string('storage_server_username');
             $table->boolean('server_is_anonymous');

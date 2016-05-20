@@ -44,6 +44,9 @@
                     <textarea name="server_url" class="form-control" placeholder="Server IP" required></textarea>
                   </div>
                   <div class="form-group">
+                    <textarea name="server_port" class="form-control" placeholder="Server Port, 21"></textarea>
+                  </div>
+                  <div class="form-group">
                     <textarea name="server_username" class="form-control" placeholder="Server Username" required></textarea>
                   </div>
                   <div>

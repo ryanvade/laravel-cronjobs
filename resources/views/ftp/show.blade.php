@@ -42,6 +42,9 @@
               {{ $server_url }}
             </div>
             <div>
+              {{ $server_port }}
+            </div>
+            <div>
               {{ $server_username }}
             </div>
             <div>

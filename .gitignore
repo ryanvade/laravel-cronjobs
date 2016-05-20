@@ -1,1 +1,2 @@
-
+# Prevent PhpStorm from saving its project settings
+.idea
