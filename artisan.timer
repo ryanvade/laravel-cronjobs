@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Artian scheduler
+
+[Timer]
+OnBootSec=0min
+# Run every Minute
+OnCalendar=*:0/1
+
+[Install]
+WantedBy=timers.target
