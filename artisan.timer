@@ -1,5 +1,5 @@
 [Unit]
-Description=Run the Artian scheduler
+Description=Run the Artisan scheduler
 
 [Timer]
 OnBootSec=0min
