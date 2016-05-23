@@ -19,7 +19,6 @@ class CreateProjectsTable extends Migration
             $table->integer('storage_server_port');
             $table->string('storage_server_password');
             $table->string('storage_server_username');
-            $table->boolean('server_is_anonymous');
             $table->timestamps();
         });
     }
