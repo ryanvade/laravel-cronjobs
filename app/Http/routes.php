@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('ftp/setup', 'FtpController@setup');
 Route::post('ftp/update', 'FtpController@update');
 Route::get('ftp/show', 'FtpController@show');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
