@@ -17,7 +17,6 @@ class ProjectsTableSeeder extends Seeder
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',
         'storage_server_username' => 'ryan',
-        'server_is_anonymous' => FALSE,
         'created_at' => new DateTime,
         'updated_at' => new DateTime
       ]);
@@ -27,7 +26,6 @@ class ProjectsTableSeeder extends Seeder
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',
         'storage_server_username' => 'ryan',
-        'server_is_anonymous' => FALSE,
         'created_at' => new DateTime,
         'updated_at' => new DateTime
       ]);
