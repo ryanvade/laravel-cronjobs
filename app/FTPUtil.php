@@ -4,7 +4,7 @@ function createprojectfile(Project $project)
 {
     $date = new DateTime;
     $filename = $project['project_name'] . '-' . $date->format('mdY') . '.txt';
-    $content = $project['project_name'];
+    $content = getContentFromProject($project);
     Storage::disk('local')->put($filename, $content);
     return $filename;
 }
@@ -27,6 +27,7 @@ function upload(Project $project, $filename)
       /* Need this for testing, since ITS is blocking normal FTP connections,
        * turning on passive connections fixes it but not all servers allow it.
        */
+       #TODO: Determine if passive connections are needed for each server
       if(!ftp_pasv($conn_id, true))
       {
         Log::error('Could not setup Passive connection on server' . $project['storage_server_url']);
@@ -41,6 +42,13 @@ function upload(Project $project, $filename)
     else{
       Log::error('Did not send ' . $filename . ' to ' . $project['storage_server_url']);
       exit('Connection Error');
-    }
+    }https://duckduckgo.com/?q=aurh&t=ffab&ia=web
     ftp_close($conn_id);
+    #TODO: Delete the temporary file
+}
+
+function getContentFromProject(Project $project)
+{
+  # TODO: Return actual project data
+  return $project['project_name'];
 }
