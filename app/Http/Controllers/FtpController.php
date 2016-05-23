@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Gate;
 use App\Http\Requests;
 use App\Project;
 
@@ -41,7 +41,13 @@ class FtpController extends Controller
         $server_port = 21;
       }
 
-      Project::where('project_name', '=', $project_selection)->firstOrFail()->update([
+      $project = Project::where('project_name', '=', $project_selection)->firstOrFail();
+      if(Gate::denies('update-ftp', $project))
+      {
+        abort(403);
+      }
+      
+      $project->update([
         'storage_server_url' => $server_url,
         'storage_server_port' => $server_port,
         'storage_server_username' => $server_username,
