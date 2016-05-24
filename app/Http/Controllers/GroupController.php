@@ -43,7 +43,7 @@ class GroupController extends Controller
         }
     }
 
-    public function edit(Request $request)
+  /*  public function edit(Request $request)
     {
       $user = Auth::user();
       $group = Group::find($user->group_id);
@@ -62,6 +62,6 @@ class GroupController extends Controller
             'users' => $users,
           ]);
       }
-    }
+    } */
 
 }
