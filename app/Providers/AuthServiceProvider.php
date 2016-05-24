@@ -39,5 +39,13 @@ class AuthServiceProvider extends ServiceProvider
             $group = Group::find($project->id);
             return $user->id == $group->project_admin_id;
         });
+
+        $gate->define('view-group', function(User $user, Group $group) {
+            return $user->group_id == $group->id;
+        });
+
+        $gate->define('edit-group', function(User $user, Group $group) {
+            return $user->id == $group->project_admin_id;
+        });
     }
 }

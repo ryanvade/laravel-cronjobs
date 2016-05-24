@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Route::get('ftp/setup',  ['middleware' => 'auth', 'uses' => 'FtpController@setup']);
 Route::post('ftp/update', 'FtpController@update');
-Route::get('ftp/show', 'FtpController@show');
+Route::get('ftp', 'FtpController@show');
+Route::get('group', 'GroupController@show');
 
 Route::auth();
 

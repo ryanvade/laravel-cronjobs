@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ $project_name }}</title>
+        <title>groups</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -40,27 +40,8 @@
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-            <div>
-              <h1>{{ $project_name }}<h1>
-            </div>
-            <div>
-              Server URl:  {{ $server_url }}
-            </div>
-            <div>
-              Server Port:  {{ $server_port }}
-            </div>
-            <div>
-              Server Username: {{ $server_username }}
-            </div>
-            <div>
-              Server Password: {{ $server_password }}
-            </div>
-            <div>
-              <a href="/ftp/setup">Update These Settings</a>
-            </div>
-            </div>
-        </div>
+      <div class="container">
+           @yield('content')
+       </div>
     </body>
 </html>

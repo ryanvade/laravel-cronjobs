@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ $project_name }}</title>
+        <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
             html, body {
                 height: 100%;
-                color: black;
             }
 
             body {
@@ -29,9 +28,6 @@
             .content {
                 text-align: center;
                 display: inline-block;
-                padding: 10px;
-                border-style: solid;
-                text-emphasis-color: black;
             }
 
             .title {
@@ -42,24 +38,10 @@
     <body>
         <div class="container">
             <div class="content">
-            <div>
-              <h1>{{ $project_name }}<h1>
-            </div>
-            <div>
-              Server URl:  {{ $server_url }}
-            </div>
-            <div>
-              Server Port:  {{ $server_port }}
-            </div>
-            <div>
-              Server Username: {{ $server_username }}
-            </div>
-            <div>
-              Server Password: {{ $server_password }}
-            </div>
-            <div>
-              <a href="/ftp/setup">Update These Settings</a>
-            </div>
+              <h1>Unathorized Access</h1>
+              <section>
+                Please contact local administrator: <a href="mailto:{{ $admin_email }}">{{ $admin_name }}</a>
+              </section>
             </div>
         </div>
     </body>
