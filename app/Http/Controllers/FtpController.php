@@ -14,7 +14,8 @@ class FtpController extends Controller
     public function setup(Request $request)
     {
       #TODO: Proper way to get the group a user belongs to than hard coding;
-      $group = Group::find(2);
+      $user = Auth::user();
+      $group = Group::find($user->group_id);
       $project = Project::find($group->project_id);
       if(Gate::denies('view-ftp', $project))
       {
