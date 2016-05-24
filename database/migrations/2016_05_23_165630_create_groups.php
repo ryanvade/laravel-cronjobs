@@ -14,6 +14,7 @@ class CreateGroups extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
+            $table->increments('group_id');
             $table->integer('project_id');
             $table->integer('project_admin_id');
             $table->timestamps();

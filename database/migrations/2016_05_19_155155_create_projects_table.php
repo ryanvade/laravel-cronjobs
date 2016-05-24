@@ -14,6 +14,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id')->unique()->index();
+            $table->increments('project_id')->unique();
             $table->string('project_name');
             $table->string('storage_server_url');
             $table->integer('storage_server_port');
