@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>FTP Setup</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
     </head>
     <body>
+      <h1>{{ $project_name }}</h1>
         <div class="container">
             <div class="content">
                 <form method="POST" action="/ftp/update">
@@ -22,14 +23,6 @@
                   </div>
                   <div>
                     <textarea name="server_password" class="form-control" placeholder="Server Password" required></textarea>
-                  </div>
-                  <div cladd="form-group">
-                    Select a project:
-                    <select name="project_selection">
-                      @foreach ($projects as $project)
-                      <option value="{{ $project->project_name }}">{{ $project->project_name }}</option>
-                      @endforeach
-                    </select>
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">

@@ -6,16 +6,22 @@ use Illuminate\Http\Request;
 use Gate;
 use App\Http\Requests;
 use App\Project;
+use App\Group;
+use Auth;
 
 class FtpController extends Controller
 {
     public function setup(Request $request)
     {
-      // With Login
-      // $projects = Project::where('user_id', '=', Auth::id());
-      // Without Login
-      $projects = Project::all();
-      return view('ftp.setup', compact('projects'));
+      #TODO: Proper way to get the group a user belongs to than hard coding;
+      $group = Group::find(2);
+      $project = Project::find($group->project_id);
+      if(Gate::denies('view-ftp', $project))
+      {
+        echo 'nope';
+      }else {
+        return view('ftp.setup', ['project_name' => $project->project_name]);
+      }
     }
 
 
@@ -44,9 +50,9 @@ class FtpController extends Controller
       $project = Project::where('project_name', '=', $project_selection)->firstOrFail();
       if(Gate::denies('update-ftp', $project))
       {
-        abort(403);
+        echo 'nope';
       }
-      
+
       $project->update([
         'storage_server_url' => $server_url,
         'storage_server_port' => $server_port,
