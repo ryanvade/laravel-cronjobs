@@ -1,9 +1,9 @@
-@extends('layout')
+@extends('group.layout')
 @section('content')
 <h1>{{ $project_name }}</h1>
 <div>
   <ul>
-  @foreach $user as $users
+  @foreach ($users as $user)
     <li>{{ $user->name }}</li>
   @endforeach
 </ul>
@@ -14,5 +14,5 @@
 <div>
   <a href="/ftp">FTP Settings</a>
 </div>
-@endsection
+
 @stop
