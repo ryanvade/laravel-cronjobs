@@ -37,8 +37,7 @@ class GroupController extends Controller
                 'admin_name' => $admin->name,
               ]);
             }else {
-              //$users = $group->users;
-              $users = User::where('group_id', $group->id)->get();
+              $users = $group->users()->get();
               return view('group.admin-layout', [
                   'project_name' => $project->project_name,
                   'users' => $users,
@@ -130,7 +129,7 @@ class GroupController extends Controller
               'email' => $user_email,
               'group_id' => 0
             ]);
-            //$group->users()->detach('group_id');
+            $group->users()->detach($edited_user->id);
           }else {
             $edited_user->update([
               'name' => $user_name,
