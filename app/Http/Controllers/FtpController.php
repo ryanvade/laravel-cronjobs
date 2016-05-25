@@ -22,7 +22,7 @@ class FtpController extends Controller
         $project = Project::find($group->project_id);
         if(Gate::denies('view-ftp', $project))
         {
-          $admin = User::find($group->project_admin_id);
+          $admin = User::find($project->project_admin_id);
           return view('unathorized', [
             'admin_name' => $admin->name,
             'admin_email' => $admin->email,
@@ -63,7 +63,7 @@ class FtpController extends Controller
 
         if(Gate::denies('update-ftp', $project))
         {
-          $admin = User::find($group->project_admin_id);
+          $admin = User::find($project->project_admin_id);
           return view('unathorized', [
             'admin_name' => $admin->name,
             'admin_email' => $admin->email,
@@ -98,7 +98,7 @@ class FtpController extends Controller
         $project = Project::find($group->project_id);
         if(Gate::denies('view-ftp', $project))
         {
-          $admin = User::find($group->project_admin_id);
+          $admin = User::find($project->project_admin_id);
           return view('unathorized', [
             'admin_name' => $admin->name,
             'admin_email' => $admin->email,

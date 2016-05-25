@@ -13,14 +13,12 @@ class GroupsTableSeeder extends Seeder
     {
         DB::table('groups')->insert([
           'project_id' => 1,
-          'project_admin_id' => 1,
           'created_at' => new DateTime,
           'updated_at' => new DateTime
         ]);
 
         DB::table('groups')->insert([
           'project_id' => 2,
-          'project_admin_id' => 2,
           'created_at' => new DateTime,
           'updated_at' => new DateTime
         ]);

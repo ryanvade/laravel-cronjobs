@@ -19,7 +19,7 @@ class GroupController extends Controller
           $user = Auth::user();
           $group = Group::find($user->group_id);
           $project = Project::find($group->project_id);
-          $admin = User::find($group->project_admin_id);
+          $admin = User::find($project->project_admin_id);
 
           if(Gate::denies('view-group', $group))
           {

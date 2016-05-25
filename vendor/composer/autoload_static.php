@@ -56,6 +56,7 @@ class ComposerStaticInit09104c36ba446e464757ce7ca5111d1d
         'L' => 
         array (
             'League\\Flysystem\\' => 17,
+            'Laracasts\\Generators\\' => 21,
         ),
         'I' => 
         array (
@@ -169,6 +170,10 @@ class ComposerStaticInit09104c36ba446e464757ce7ca5111d1d
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
+        ),
+        'Laracasts\\Generators\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laracasts/generators/src',
         ),
         'Illuminate\\' => 
         array (
@@ -295,6 +300,7 @@ class ComposerStaticInit09104c36ba446e464757ce7ca5111d1d
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
         'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
+        'CreateGroupUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_25_160924_create_group_users_table.php',
         'CreateGroups' => __DIR__ . '/../..' . '/database/migrations/2016_05_23_165630_create_groups.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateProjectsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_19_155155_create_projects_table.php',
@@ -1360,6 +1366,14 @@ class ComposerStaticInit09104c36ba446e464757ce7ca5111d1d
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/JakubOnderka/PhpConsoleColor/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/JakubOnderka/PhpConsoleHighlighter/Highlighter.php',
+        'Laracasts\\Generators\\Commands\\MigrationMakeCommand' => __DIR__ . '/..' . '/laracasts/generators/src/Commands/MigrationMakeCommand.php',
+        'Laracasts\\Generators\\Commands\\PivotMigrationMakeCommand' => __DIR__ . '/..' . '/laracasts/generators/src/Commands/PivotMigrationMakeCommand.php',
+        'Laracasts\\Generators\\Commands\\SeedMakeCommand' => __DIR__ . '/..' . '/laracasts/generators/src/Commands/SeedMakeCommand.php',
+        'Laracasts\\Generators\\GeneratorException' => __DIR__ . '/..' . '/laracasts/generators/src/GeneratorException.php',
+        'Laracasts\\Generators\\GeneratorsServiceProvider' => __DIR__ . '/..' . '/laracasts/generators/src/GeneratorsServiceProvider.php',
+        'Laracasts\\Generators\\Migrations\\NameParser' => __DIR__ . '/..' . '/laracasts/generators/src/Migrations/NameParser.php',
+        'Laracasts\\Generators\\Migrations\\SchemaParser' => __DIR__ . '/..' . '/laracasts/generators/src/Migrations/SchemaParser.php',
+        'Laracasts\\Generators\\Migrations\\SyntaxBuilder' => __DIR__ . '/..' . '/laracasts/generators/src/Migrations/SyntaxBuilder.php',
         'League\\Flysystem\\AdapterInterface' => __DIR__ . '/..' . '/league/flysystem/src/AdapterInterface.php',
         'League\\Flysystem\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractAdapter.php',
         'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',

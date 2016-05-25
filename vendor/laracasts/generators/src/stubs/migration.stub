@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroups extends Migration
+class {{class}} extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,7 @@ class CreateGroups extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
-            $table->increments('id')->unique()->index();
-            $table->integer('project_id');
-            $table->timestamps();
-        });
+        {{schema_up}}
     }
 
     /**
@@ -26,6 +22,6 @@ class CreateGroups extends Migration
      */
     public function down()
     {
-        Schema::drop('groups');
+        {{schema_down}}
     }
 }

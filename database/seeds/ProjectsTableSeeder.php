@@ -13,6 +13,7 @@ class ProjectsTableSeeder extends Seeder
     {
       DB::table('projects')->insert([
         'project_name' => 'Test Project Name',
+        'project_admin_id' => 1,
         'storage_server_url'=> '159.203.172.61',
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',
@@ -22,6 +23,7 @@ class ProjectsTableSeeder extends Seeder
       ]);
       DB::table('projects')->insert([
         'project_name' => 'Test Project 2',
+        'project_admin_id' => 2,
         'storage_server_url'=> '159.203.172.61',
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',

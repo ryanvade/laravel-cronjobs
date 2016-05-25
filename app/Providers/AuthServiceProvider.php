@@ -31,13 +31,11 @@ class AuthServiceProvider extends ServiceProvider
 
         #TODO Find a better way to get the groups project admin
         $gate->define('update-ftp', function (User $user, Project $project) {
-            $group = Group::find($project->id);
-            return $user->id == $group->project_admin_id;
+            return $user->id == $project->project_admin_id;
         });
 
         $gate->define('view-ftp', function (User $user, Project $project) {
-            $group = Group::find($project->id);
-            return $user->id == $group->project_admin_id;
+            return $user->id == $project->project_admin_id;
         });
 
         $gate->define('view-group', function(User $user, Group $group) {
