@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
+    protected $guarded = [
+
+    ];
+
     public function users()
     {
-      return $this->belongsToMany('User');
+      return $this->belongsToMany('App\User')->withPivot('user_id', 'group_id');
     }
 }

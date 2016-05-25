@@ -25,8 +25,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function groups()
+    protected $guarded = [
+
+    ];
+
+    public function group()
     {
-      return $this->belongsToMany('Group');
+      return $this->belongsToMany('App\Group')->withPivot('user_id', 'group_id');
     }
 }
