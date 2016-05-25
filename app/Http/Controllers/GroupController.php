@@ -14,32 +14,37 @@ class GroupController extends Controller
 {
     public function show(Request $request)
     {
-        $user = Auth::user();
-        $group = Group::find($user->group_id);
-        $project = Project::find($group->project_id);
-        $admin = User::find($group->project_admin_id);
-
-        if(Gate::denies('view-group', $group))
+        if(Auth::check())
         {
-            return view('unathorized', [
-            'admin_name' => $admin->name,
-            'admin_email' => $admin->email,
-          ]);
-        }else {
-          if(Gate::denies('edit-group', $group))
+          $user = Auth::user();
+          $group = Group::find($user->group_id);
+          $project = Project::find($group->project_id);
+          $admin = User::find($group->project_admin_id);
+
+          if(Gate::denies('view-group', $group))
           {
-            return view('group.user-layout', [
-              'project_name' => $project->project_name,
-              'admin_email' =>  $admin->email,
+              return view('unathorized', [
               'admin_name' => $admin->name,
+              'admin_email' => $admin->email,
             ]);
           }else {
-            $users = User::where('group_id',  $group->id)->get();
-              return view('group.admin-layout', [
+            if(Gate::denies('edit-group', $group))
+            {
+              return view('group.user-layout', [
                 'project_name' => $project->project_name,
-                'users' => $users,
+                'admin_email' =>  $admin->email,
+                'admin_name' => $admin->name,
               ]);
+            }else {
+              $users = User::where('group_id',  $group->id)->get();
+                return view('group.admin-layout', [
+                  'project_name' => $project->project_name,
+                  'users' => $users,
+                ]);
+            }
           }
+        }else {
+          return redirect('/login');
         }
     }
 
