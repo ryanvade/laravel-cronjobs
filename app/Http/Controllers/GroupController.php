@@ -17,12 +17,12 @@ class GroupController extends Controller
         if(Auth::check())
         {
           $user = Auth::user();
-          $group = Group::find($user->group_id);
-          $project = Project::find($group->project_id);
+          $group = Group::findOrFail($user->group_id);
+          $project = Project::findOrFail($group->project_id);
 
           if(Gate::denies('view-group', $group))
           {
-            $admin = User::find($project->project_admin_id);
+            $admin = User::findOrFail($project->project_admin_id);
               return view('unathorized', [
               'admin_name' => $admin->name,
               'admin_email' => $admin->email,
@@ -30,14 +30,15 @@ class GroupController extends Controller
           }else {
             if(Gate::denies('edit-group', $group))
             {
-              $admin = User::find($project->project_admin_id);
+              $admin = User::findOrFail($project->project_admin_id);
               return view('group.user-layout', [
                 'project_name' => $project->project_name,
                 'admin_email' =>  $admin->email,
                 'admin_name' => $admin->name,
               ]);
             }else {
-              $users = $group->users;
+              //$users = $group->users;
+              $users = User::where('group_id', $group->id)->get();
               return view('group.admin-layout', [
                   'project_name' => $project->project_name,
                   'users' => $users,
@@ -59,7 +60,7 @@ class GroupController extends Controller
 
         if(Gate::denies('edit-group', $group))
         {
-          $admin = User::find($project->project_admin_id);
+          $admin = User::findOrFail($project->project_admin_id);
           return view('unathorized', [
           'admin_name' => $admin->name,
           'admin_email' => $admin->email,
@@ -81,12 +82,12 @@ class GroupController extends Controller
       if(Auth::check())
       {
         $user = Auth::user();
-        $group = Group::find($user->group_id);
-        $project = Project::find($group->project_id);
+        $group = Group::findOrFail($user->group_id);
+        $project = Project::findOrFail($group->project_id);
 
         if(Gate::denies('edit-group', $group))
         {
-          $admin = User::find($project->project_admin_id);
+          $admin = User::findOrFail($project->project_admin_id);
           return view('unathorized', [
           'admin_name' => $admin->name,
           'admin_email' => $admin->email,
@@ -107,12 +108,12 @@ class GroupController extends Controller
       if(Auth::check())
       {
         $user = Auth::user();
-        $group = Group::find($user->group_id);
-        $project = Project::find($group->project_id);
+        $group = Group::findOrFail($user->group_id);
+        $project = Project::findOrFail($group->project_id);
 
         if(Gate::denies('edit-group', $group))
         {
-          $admin = User::find($project->project_admin_id);
+          $admin = User::findOrFail($project->project_admin_id);
           return view('unathorized', [
           'admin_name' => $admin->name,
           'admin_email' => $admin->email,
@@ -121,7 +122,7 @@ class GroupController extends Controller
           $user_name = $request->get('user_name');
           $user_email = $request->get('user_email');
           $remove_from_group = $request->get('remove-from-group');
-          $edited_user = User::find($id);
+          $edited_user = User::findOrFail($id);
           if(isset($remove_from_group))
           {
             $edited_user->update([
@@ -129,7 +130,7 @@ class GroupController extends Controller
               'email' => $user_email,
               'group_id' => 0
             ]);
-            $group->users()->detach('group_id');
+            //$group->users()->detach('group_id');
           }else {
             $edited_user->update([
               'name' => $user_name,
