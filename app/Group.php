@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    public function admin()
+    public function users()
     {
-      return $this->hasOne('App\User', 'project_admin_id');
+      return $this->belongsToMany('User');
     }
-
-    /*public function users()
-    {
-      return this->belongsToMany('App\User')
-    }*/
 }
