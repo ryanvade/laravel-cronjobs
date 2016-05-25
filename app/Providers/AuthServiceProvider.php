@@ -43,7 +43,8 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         $gate->define('edit-group', function(User $user, Group $group) {
-            return $user->id == $group->project_admin_id;
+          $project = Project::find($group->project_id);
+            return $user->id == $project->project_admin_id;
         });
     }
 }

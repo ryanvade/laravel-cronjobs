@@ -3,13 +3,10 @@
 <h1>{{ $project_name }}</h1>
 <div>
   <ul>
-  @foreach ($users as $user)
-    <li>{{ $user->name }}</li>
-  @endforeach
+    @foreach ($users as $user)
+      <li><a href="/group/edit/{{ $user->id }}">{{ $user->name }}</a></li>
+    @endforeach
 </ul>
-</div>
-<div>
-  <a href="/group/edit">Edit Group</a>
 </div>
 <div>
   <a href="/ftp">FTP Settings</a>
