@@ -29,7 +29,7 @@ class User extends Authenticatable
 
     ];
 
-    public function group()
+    public function groups()
     {
       return $this->belongsToMany('App\Group', 'group_user', 'user_id', 'group_id');
     }
