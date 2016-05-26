@@ -19,7 +19,7 @@ function sftpUpload(Project $project, $filename)
   }
 
   if($connection == true){
-    ssh2_scp_send($connection, '/storage/app/ . $filename, 'filename', 0644);
+    ssh2_scp_send($connection, '/storage/app/ . $filename ', 'filename', 0644);
     Log::info('Sent to server.');
     }else{
     Log::error('Could not send to  server' . $project['storage_server_url']);
@@ -27,4 +27,4 @@ function sftpUpload(Project $project, $filename)
   }
   ssh2_exec($connection, 'exit');
   unset($connection);
-  }
+   }
