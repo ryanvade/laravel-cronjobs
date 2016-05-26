@@ -29,12 +29,12 @@ class Kernel extends ConsoleKernel
 
             foreach (Project::all() as $project) {
                $filename = createprojectfile($project);
-               upload($project, $filename);
+               ftpUpload($project, $filename);
             }
 
-        })//->when(function() {
-          //return true;
-        //});
-        ->everyFiveMinutes();
+        })->when(function() {
+          return true;
+        });
+        //->everyFiveMinutes();
     }
 }

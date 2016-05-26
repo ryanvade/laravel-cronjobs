@@ -24,7 +24,8 @@
             "App\\": "app/"
         },
         "files": [
-          "app/FTPUtil.php"
+          "app/FTPUtil.php",
+          "app/SFTPUtil.php"
         ]
     },
     "autoload-dev": {

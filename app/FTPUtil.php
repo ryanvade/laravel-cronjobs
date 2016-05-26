@@ -9,7 +9,7 @@ function createprojectfile(Project $project)
     return $filename;
 }
 
-function upload(Project $project, $filename)
+function ftpUpload(Project $project, $filename)
 {
     $conn_id = ftp_connect($project['storage_server_url'], $project['storage_server_port']);
     if(!$conn_id)
@@ -28,10 +28,12 @@ function upload(Project $project, $filename)
        * turning on passive connections fixes it but not all servers allow it.
        */
        #TODO: Determine if passive connections are needed for each server
-      if(!ftp_pasv($conn_id, true))
+      if(!ftp_pasv($conn_id, $project['isPassive']))
       {
         Log::error('Could not setup Passive connection on server' . $project['storage_server_url']);
         exit('Connection Error');
+      }else {
+        Log::info('Set passive connection to ' . $project['isPassive']);
       }
 
     // Send the file
