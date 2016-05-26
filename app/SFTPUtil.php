@@ -1,30 +1,36 @@
 <?php
+use App\Project;
+use phpseclib\Net\SFTP;
 
 function sftpUpload(Project $project, $filename)
 {
-  if($connection == true){
-      $connection = ssh2_connect('storage_server_url', 'storage_server_port');
-      Log::info('Valid connection.');
-    }else{
-      Log::error('Could not make connection on server' . $project['storage_server_url']);
-      exit('Connection Error');
-    }
-
-  if($connection == true){
-     ssh2_auth_password($connection, 'storage_server_username', 'storage_server_password');
-     Log::info('Valid username and password.');
-    }else{
-     Log::error('Could not authorize password on server' . $project['storage_server_password']);
-     exit('Connection Error');
+  $sftp = new SFTP($project['storage_server_url'], $project['storage_server_port'], 10);
+  if($sftp->login($project['storage_server_username'], $project['storage_server_password']))
+  {
+    Log::info('Login successful on ' . $project['storage_server_url'] . 'with '. $project['storage_server_username']);
+  }else {
+    Log::error('Login not successful on ' . $project['storage_server_url'] . 'with '. $project['storage_server_username']);
+    Log::error($sftp->getLastError());
+    exit();
   }
 
-  if($connection == true){
-    ssh2_scp_send($connection, '/storage/app/ . $filename ', 'filename', 0644);
-    Log::info('Sent to server.');
-    }else{
-    Log::error('Could not send to  server' . $project['storage_server_url']);
-    exit('Connection Error');
+  if($sftp->isConnected())
+  {
+    Log::info('sftp connection establised to ' . $project['storage_server_url']);
+  }else {
+    Log::error('Error establishing sftp connection to ' . $project['storage_server_url']);
+    Log::error($sftp->getLastError());
+    exit();
   }
-  ssh2_exec($connection, 'exit');
-  unset($connection);
-   }
+
+  if($sftp->put($filename, 'storage/app/' . $filename))
+  {
+    Log::info('Succcesfully uploaded ' . $filename . 'to ' . $project['storage_server_url']);
+  }else {
+    Log::error('Could not upload ' . $filename . 'to ' . $project['storage_server_url']);
+    Log::error($sftp->getLastError());
+    exit();
+  }
+  $sftp->disconnect();
+
+}
