@@ -24,6 +24,13 @@
                   <div>
                     <textarea name="server_password" class="form-control" placeholder="Server Password" required></textarea>
                   </div>
+                    <div class="form-group">
+                            What Type of Server:
+                            <select name="servertype">
+                                <option value="SFTP">SFTP</option>
+                                <option value="FTP">FTP</option>
+                            </select>
+                    </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary">
                       Submit

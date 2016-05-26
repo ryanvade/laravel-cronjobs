@@ -45,6 +45,7 @@ class FtpController extends Controller
         $server_port = $request->get('server_port');
         $server_username = $request->get('server_username');
         $server_password = $request->get('server_password');
+        $server_type = $request->get('servertype');
         $project_selection = $request->get('project_selection');
 
         $this->validate($request,[
@@ -53,9 +54,19 @@ class FtpController extends Controller
           'server_password' => 'required|min:5'
         ]);
 
+        if($server_type == 'SFTP'){
+          $server_type = true;
+        }else{
+          $server_type = false;
+        }
+
         if(!isset($server_port) || trim($server_port) == '')
         {
-          $server_port = 21;
+          if($server_type == true){
+            $server_port = 22;
+          }else {
+            $server_port = 21;
+          }
         }
         $user = Auth::user();
         $group = Group::find($user->group_id);
@@ -74,7 +85,8 @@ class FtpController extends Controller
           'storage_server_url' => $server_url,
           'storage_server_port' => $server_port,
           'storage_server_username' => $server_username,
-          'storage_server_password' =>  $server_password
+          'storage_server_password' =>  $server_password,
+          'storage_server_is_sftp' => $server_type
         ]);
 
         return view('ftp.show', [

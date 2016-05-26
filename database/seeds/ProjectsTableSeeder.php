@@ -18,6 +18,7 @@ class ProjectsTableSeeder extends Seeder
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',
         'storage_server_username' => 'ryan',
+        'storage_server_is_sftp' => true,
         'isPassive' => true,
         'created_at' => new DateTime,
         'updated_at' => new DateTime
@@ -29,6 +30,7 @@ class ProjectsTableSeeder extends Seeder
         'storage_server_port' => 21,
         'storage_server_password' => 'password123',
         'storage_server_username' => 'ryan',
+        'storage_server_is_sftp' => false,
         'isPassive' => false,
         'created_at' => new DateTime,
         'updated_at' => new DateTime

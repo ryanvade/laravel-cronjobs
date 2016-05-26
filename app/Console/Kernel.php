@@ -29,7 +29,11 @@ class Kernel extends ConsoleKernel
 
             foreach (Project::all() as $project) {
                $filename = createprojectfile($project);
-               ftpUpload($project, $filename);
+               if($project->storage_sever_is_sftp){
+                   sftpUpload($project, $filename);
+               }else {
+                   ftpUpload($project, $filename);
+               }
             }
 
         })->when(function() {
