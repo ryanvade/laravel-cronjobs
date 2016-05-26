@@ -5,6 +5,8 @@ use App\Project;
 use App\FTPUtil;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Contacs\Logging;
+use Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -29,7 +31,8 @@ class Kernel extends ConsoleKernel
 
             foreach (Project::all() as $project) {
                $filename = createprojectfile($project);
-               if($project->storage_sever_is_sftp){
+               Log::info($project->project_name . ' is sftp: ' . $project->storage_server_is_sftp);
+               if($project->storage_server_is_sftp){
                    sftpUpload($project, $filename);
                }else {
                    ftpUpload($project, $filename);

@@ -37,7 +37,7 @@ function ftpUpload(Project $project, $filename)
       }
 
     // Send the file
-    if(ftp_put($conn_id, $filename, 'storage/app/' . $filename, FTP_ASCII))
+    if(ftp_put($conn_id, $filename, 'storage/app/' . $filename, FTP_BINARY))
     {
       Log::info('Sent ' . $filename . ' to ' . $project['storage_server_url']);
     }
