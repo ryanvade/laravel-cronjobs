@@ -14,10 +14,10 @@ class ProjectsTableSeeder extends Seeder
       DB::table('projects')->insert([
         'project_name' => 'Test Project Name',
         'project_admin_id' => 1,
-        'storage_server_url'=> '159.203.172.61',
+        'storage_server_url'=> '54.84.85.146',
         'storage_server_port' => 22,
-        'storage_server_password' => 'password123',
-        'storage_server_username' => 'ryan',
+        'storage_server_password' => 'somepassword',
+        'storage_server_username' => 'ftptestuser',
         'storage_server_is_sftp' => true,
         'isPassive' => true,
         'created_at' => new DateTime,
