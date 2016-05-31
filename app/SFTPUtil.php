@@ -32,5 +32,5 @@ function sftpUpload(Project $project, $filename)
     exit();
   }
   $sftp->disconnect();
-
+  deleteFile($filename);
 }

@@ -46,11 +46,16 @@ function ftpUpload(Project $project, $filename)
       exit('Connection Error');
     }https://duckduckgo.com/?q=aurh&t=ffab&ia=web
     ftp_close($conn_id);
-    #TODO: Delete the temporary file
+    deleteFile($filename);
 }
 
 function getContentFromProject(Project $project)
 {
   # TODO: Return actual project data
   return $project['project_name'];
+}
+
+function deleteFile($filename)
+{
+  Storage::delete($filename);
 }
