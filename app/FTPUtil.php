@@ -44,7 +44,7 @@ function ftpUpload(Project $project, $filename)
     else{
       Log::error('Did not send ' . $filename . ' to ' . $project['storage_server_url']);
       exit('Connection Error');
-    }https://duckduckgo.com/?q=aurh&t=ffab&ia=web
+    }
     ftp_close($conn_id);
     deleteFile($filename);
 }
